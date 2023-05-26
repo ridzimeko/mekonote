@@ -1,0 +1,40 @@
+{
+  "name": "mekonote",
+  "version": "1.0.0",
+  "description": "Simple blog vitepress but with custom theme",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "keywords": [
+    "vitepress",
+    "vue",
+    "ssg",
+    "blog",
+    "mekonote"
+  ],
+  "author": "Ridzimeko",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vitepress": "1.0.0-alpha.75",
+    "vue": "^3.2.47"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
+  },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "fast-glob": "^3.2.12",
+    "feed": "^4.2.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1"
+  }
+}

@@ -1,0 +1,203 @@
+:root {
+  --brand-color-primary: #2176ff;
+  --brand-color-secondary: #6f9ceb;
+  --theme-background-light: #ffffff;
+  --theme-text-light: #0b090b;
+  --theme-accent-light: #b6d3d1;
+  --theme-color-light: #f4f1f3;
+  --theme-background-dark: hsl(179, 22%, 2%);
+  --theme-accent-dark: hsl(179, 22%, 63%);
+  --theme-color-dark: hsl(179, 22%, 8%);
+  --theme-text-dark: hsl(179, 22%, 95%);
+  --theme-color-warning: #fed766;
+  --theme-color-info: #6f9ceb;
+  --theme-color-danger: #ff312e;
+  --theme-color-tip: #56e39f;
+  --rounded-border: 2rem;
+}
+
+html {
+  scroll-snap-type: y proximity;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica","Arial","Inter","Consolas","Courier New","Lucida Console","Inconsolata", sans-serif;
+  box-sizing: border-box;
+  background-color: var(--theme-background-light);
+  /* color: var(--theme-text-light); */
+}
+
+svg > * {
+  stroke: var(--theme-text-light);
+  /* vertical-align: middle; */
+}
+
+svg {
+  vertical-align: middle;
+}
+
+/* Content styles */
+
+a {
+  color: var(--brand-color-primary);
+  /* text-decoration: none; */
+}
+
+.margin-body {
+  margin: 2rem 6em 2rem;
+}
+
+.content {
+  font-size: 17px;
+  margin: 0 1rem;
+}
+
+.note-content {
+  padding: 0 13rem;
+  font-size: 17px;
+}
+
+.note-content div > * {
+  line-height: 1.4em;
+}
+
+.content div img {
+  width: 80%;
+  display: block;
+  margin: auto;
+  object-fit: cover;
+}
+
+details {
+  margin: 2rem 0;
+  color: var(--theme-text-light);
+}
+
+.table-of-contents {
+  background-color: var(--theme-color-light);
+  padding: 1rem;
+  border-radius: 9px;
+  margin: 2rem 0;
+}
+
+.table-of-contents:before {
+  content: "Daftar Isi";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--theme-text-light);
+}
+
+.table-of-contents ul li a {
+  color: whitesmoke;
+}
+
+blockquote {
+  background-color: var(--theme-color-light);
+  padding: 5px 25px;
+  margin: 20px 0;
+  border-left: 5px solid #c3c3c3;
+  border-radius: 5px;
+}
+
+.custom-block {
+  background-color: var(--theme-color-light);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9px;
+  text-align: left;
+  margin: 1rem 0;
+}
+
+div[class*="language"],
+pre {
+  position: relative;
+  background-color: var(--theme-color-dark);
+  padding: 0.5rem 1.5rem;
+  font-size: 13px;
+}
+
+pre {
+  color: var(--theme-text-dark);
+  overflow: scroll;
+}
+
+button[class*="copy"], button[class*="copied"] {
+  position: absolute;
+  right: 20px;
+  color: var(--theme-text-dark);
+  font-size: 16px;
+  background-color: var(--theme-background-dark);
+  border: none;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+button.copied::after {
+  content: "Copied!";
+  display: flex;
+  align-items: center;
+}
+
+
+div[class*="warning"] {
+  background-color: #ffefca;
+}
+
+div[class*="warning"] p {
+  color: var(--theme-color-warning);
+}
+
+div[class*="danger"] {
+  background-color: var(--theme-color-danger);
+  background-color: #ffbb9c;
+}
+
+div[class*="danger"] p {
+  color: var(--theme-color-danger);
+}
+
+div[class*="info"] {
+  background-color: #e3f0ff;
+  font-weight: bolder;
+}
+
+div[class*="info"] p {
+  color: var(--theme-color-info);
+}
+
+div[class*="tip"] {
+  background-color: #d0fbe1;
+  font-weight: bolder;
+}
+
+div[class*="tip"] p {
+  color: var(--theme-color-tip);
+}
+
+@media screen and (max-width: 1000px) {
+  .margin-body {
+    margin: 2rem 0;
+    padding: 0;
+  }
+
+  /* content viewport styles */
+
+  .note-content div {
+    margin: 0 0.4em;
+  }
+
+  .note-content div h1 {
+    font-size: 30px;
+  }
+
+  .note-content {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    text-align: start;
+  }
+
+  .content div img {
+    width: 100%;
+  }
+}
