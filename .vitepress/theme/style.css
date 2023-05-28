@@ -16,21 +16,15 @@
   --rounded-border: 2rem;
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
-
 body {
   margin: 0;
   font-family: "Helvetica","Arial","Inter","Consolas","Courier New","Lucida Console","Inconsolata", sans-serif;
   box-sizing: border-box;
   background-color: var(--theme-background-light);
-  /* color: var(--theme-text-light); */
 }
 
 svg > * {
   stroke: var(--theme-text-light);
-  /* vertical-align: middle; */
 }
 
 svg {

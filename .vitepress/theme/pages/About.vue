@@ -31,11 +31,6 @@ import ExternalLink from "../components/icons/ExternalLink.vue";
 </template>
 
 <style scoped>
-.cover,
-.aboutDiv {
-  scroll-snap-align: start;
-}
-
 .cover {
   position: relative;
   height: 100vh;
@@ -72,10 +67,8 @@ import ExternalLink from "../components/icons/ExternalLink.vue";
 }
 
 .aboutDiv {
-  display: flex;
-  align-items: flex-start;
-  padding: 0 20vh;
-  height: 80vh;
+  margin-top: 2.2rem;
+  padding: 0 10rem;
   font-size: 17px;
 }
 
@@ -123,7 +116,7 @@ import ExternalLink from "../components/icons/ExternalLink.vue";
   }
 
   .aboutDiv {
-    padding: 1rem;
+    padding: 0 1rem;
   }
 }
 </style>
