@@ -1,6 +1,5 @@
 dist/
 cache/
 node_modules/
-notes/
-
-notes/!markdown-examples.md
+notes/*
+!notes/markdown-examples.md
