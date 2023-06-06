@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import fg from "fast-glob";
 import markdownIt from "markdown-it";
 
-dayjs.extend(customParseFormat)
+dayjs.extend(customParseFormat);
 
 const baseurl: string = "example.com";
 
@@ -32,7 +32,18 @@ async function buildRSSFeed() {
   const feed = new Feed(options);
   const posts: any = await generateRSS();
 
-  posts.forEach((post) => feed.addItem(post));
+  posts.forEach((post) => {
+    feed.addItem({
+      title: post.title,
+      id: post.link,
+      link: post.link,
+      description: post.description,
+      content: post.content,
+      author: post.author,
+      date: post.date,
+      image: post.image,
+    });
+  });
 
   writeFile(".vitepress/dist/feed.xml", feed.atom1());
 }
@@ -46,24 +57,22 @@ async function generateRSS() {
     linkify: true,
   });
 
-  const posts: any[] = (
-    await Promise.all(
-      files
-        .filter((i) => !i.includes("index"))
-        .map(async (i) => {
-          const raw = await readFile(i);
-          const { data, content } = matter(raw);
-          const html = markdown.render(content);
+  const posts: any[] = await Promise.all(
+    files
+      .filter((i) => !i.includes("index"))
+      .map(async (i) => {
+        const raw = await readFile(i);
+        const { data, content } = matter(raw);
+        const html = markdown.render(content);
 
-          return {
-            ...data,
-            date: dayjs(data.date, ["DD-MM-YYYY", "YYYY-MM-DD"]).toDate(),
-            author: [author],
-            content: html,
-            url: `${baseurl}/${i.replace(".md", ".html")}`,
-          };
-        })
-    )
+        return {
+          ...data,
+          date: dayjs(data.date, ["DD-MM-YYYY", "YYYY-MM-DD"]).toDate(),
+          author: [author],
+          content: html,
+          link: `${baseurl}/${i.replace(".md", ".html")}`,
+        };
+      })
   );
 
   return posts;
