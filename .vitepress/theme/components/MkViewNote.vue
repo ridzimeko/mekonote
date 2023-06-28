@@ -17,11 +17,11 @@ const { theme } = useData();
           <img
             loading="lazy"
             class="author-image"
-            :src="theme.authorImage"
-            :alt="theme.author"
-            :title="theme.author"
+            :src="theme.author.image"
+            :alt="theme.author.name"
+            :title="theme.author.name"
           />
-          <span class="author-name">{{ theme.author }}</span>
+          <span class="author-name">{{ theme.author.name }}</span>
           <span>|</span>
         </div>
         <p class="note-date">{{ getNoteDatetime($frontmatter.date) }}</p>

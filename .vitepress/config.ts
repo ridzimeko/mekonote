@@ -1,23 +1,24 @@
-import { defineConfigWithTheme } from "vitepress";
-import buildRSSFeed from "./rss";
+import { defineConfigWithTheme } from "vitepress"
+import buildRSSFeed from "./rss"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme({
   title: "Mekonote",
   description: "Simple and customizable static blog generator",
-  head: [
-    [
-      "link",
-      {
-        type: "application/rss+xml",
-        title: "Subscribe to Mekonote",
-        href: "https://example.com/feed.xml",
-      },
-    ],
-  ],
+  head: [],
   themeConfig: {
-    author: "blackycats",
-    authorImage: "/images/blackycats.jpg",
+    hostname: "https://example.com",
+    favicon: "/favicon.svg",
+    RssOptions: {
+      language: "en", // optional, used only in RSS 2.0
+      copyright: `${new Date().getFullYear()} Mekonote`,
+      generator: "Mekonote",
+    },
+    author: {
+      name: "blackycats",
+      email: "meko@example.com",
+      image: "/images/blackycats.jpg",
+    },
     nav: [
       { text: "Beranda", link: "/" },
       { text: "Catatan", link: "/notes" },
@@ -25,8 +26,8 @@ export default defineConfigWithTheme({
       { text: "Tentang", link: "/about" },
     ],
   },
-  buildEnd: () => buildRSSFeed(),
+  buildEnd: ({ userConfig }) => buildRSSFeed(userConfig),
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ["**/README.md"],
-});
+})
