@@ -1,7 +1,7 @@
 {
   "name": "mekonote",
   "version": "1.0.0",
-  "description": "Simple blog vitepress but with custom theme",
+  "description": "Simple and customizable static blog built with vitepress",
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
@@ -17,8 +17,11 @@
   ],
   "author": "Ridzimeko",
   "license": "GPL-3.0",
+  "type": "module",
   "devDependencies": {
     "@types/node": "^20.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.5",
     "vite-plugin-imagemin": "^0.6.1",
     "vitepress": "1.0.0-alpha.75",
     "vue": "^3.2.47"
