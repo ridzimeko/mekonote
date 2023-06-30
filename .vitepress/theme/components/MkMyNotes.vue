@@ -1,31 +1,36 @@
 <script setup lang="ts">
-import Time from "../components/icons/Time.vue";
-import Calendar from "../components/icons/Calendar.vue";
+import Time from "../components/icons/Time.vue"
+import Calendar from "../components/icons/Calendar.vue"
+import { data as notes } from "../server/post.data"
+import { getNotesByCategories } from "../server/utils"
+import { computed } from "vue"
 
-defineProps<{
-  title?: string;
-  description?: string;
-  url?: string;
-  date?: string;
-  readingTime?: string;
-}>();
+const props = defineProps<{
+  limit?: number
+  category?: string
+}>()
+
+const myNotes = computed(() => {
+  if (props.category) return getNotesByCategories(notes, props.category)
+  return notes
+})
 </script>
 
 <template>
-  <div class="note_card">
-    <a class="note" :href="url">
-      <h2>{{ title }}</h2>
-      <div v-if="description">
-        <i>{{ description }}</i>
+  <div class="note_card" v-for="note of myNotes.slice(0, limit)" :key="note.url">
+    <a class="note" :href="note.url">
+      <h2>{{ note.title }}</h2>
+      <div v-if="note.description">
+        <i>{{ note.description }}</i>
       </div>
       <div class="note_detail">
         <span>
           <Calendar style="height: 30px; width: 30px" />
-          {{ date }}</span
+          {{ note.date }}</span
         >
         <span>
           <Time style="height: 30px; width: 30px" />
-          {{ readingTime }}</span
+          {{ note.readingTime }} menit waktu baca</span
         >
       </div>
     </a>

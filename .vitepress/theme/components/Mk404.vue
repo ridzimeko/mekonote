@@ -2,9 +2,7 @@
   <div class="notFound--div">
     <div>
       <h1 class="notFound_title">Tidak ada halaman yang tersedia</h1>
-      <p>
-        Ups, sepertinya kamu lagi nyasar karena tidak ada apa-apa disini
-      </p>
+      <p>Ups, sepertinya kamu lagi nyasar karena tidak ada apa-apa disini</p>
       <a class="back_button" href="/">Oke balik aja</a>
       <p class="error_text">Error code: 404 Not Found</p>
     </div>

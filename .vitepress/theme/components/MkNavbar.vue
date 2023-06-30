@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress";
 import Menu from "./icons/Menu.vue";
-import MkSwitchAppearance from "./MkSwitchAppearance.vue";
+// import MkSwitchAppearance from "./MkSwitchAppearance.vue";
 
 const emit = defineEmits(["toggle-sidebar"]);
 

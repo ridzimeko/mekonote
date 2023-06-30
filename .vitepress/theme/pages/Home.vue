@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import MkRecentNotes from "../components/MkRecentNotes.vue";
-import { useData } from "vitepress";
+import MkMyNotes from "../components/MkMyNotes.vue"
+import { useData } from "vitepress"
 
-const { site, frontmatter } = useData();
+const { site, frontmatter } = useData()
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const { site, frontmatter } = useData();
       >
     </div>
   </div>
-  <MkRecentNotes />
+  <MkMyNotes :limit="frontmatter.notesLimit" />
 </template>
 
 <style scoped>

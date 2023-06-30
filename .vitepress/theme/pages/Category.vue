@@ -1,21 +1,17 @@
-<script setup>
-import { ref } from "vue";
-import { data as notes } from "../server/post.data";
-import { noteCategories, viewCategory } from "../server/utils";
-import MkMyNotes from "../components/MkMyNotes.vue";
+<script setup lang="ts">
+import { ref } from "vue"
+import { noteCategories } from "../server/utils"
+import { data as notes } from "../server/post.data"
+import MkMyNotes from "../components/MkMyNotes.vue"
 
-const selectedCategory = ref(null);
-const filteredNotes = ref(null);
+const selectedCategory = ref("")
+const categories = noteCategories(notes)
 
-const categories = noteCategories(notes);
-
-const getNoteFromCategory = (category) => {
-  selectedCategory.value = null;
-  const res = viewCategory(notes, category);
-  filteredNotes.value = res;
-  selectedCategory.value = category;
-};
+const getNoteFromCategory = (category: string) => {
+  selectedCategory.value = category
+}
 </script>
+
 <template>
   <div class="cardContainer">
     <button
@@ -29,15 +25,7 @@ const getNoteFromCategory = (category) => {
   </div>
 
   <div class="container">
-    <MkMyNotes
-      v-for="(note, i) in filteredNotes"
-      :key="i"
-      :title="note.title"
-      :description="note.frontmatter.description"
-      :date="note.date"
-      :readingTime="note.readingTime"
-      :url="note.url"
-    />
+    <MkMyNotes v-if="selectedCategory" :category="selectedCategory" />
   </div>
 </template>
 

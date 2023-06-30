@@ -7,7 +7,6 @@ pageHeader:
 ---
 
 <script setup>
-import { data as notes } from './.vitepress/theme/server/post.data'
 import MkMyNotes from './.vitepress/theme/components/MkMyNotes.vue'
 </script>
 
@@ -16,14 +15,6 @@ import MkMyNotes from './.vitepress/theme/components/MkMyNotes.vue'
 ::: info Subcribe to [RSS](/feed.xml) for more new notes!
 :::
 
-<MkMyNotes style="margin-top: 2rem;"
-  v-for="(note, i) in notes" 
-  :key="i" 
-  :title="note.title" 
-  :description="note.frontmatter.description" 
-  :date="note.date" 
-  :readingTime="note.readingTime" 
-  :url="note.url" 
-/>
+<MkMyNotes style="margin-top: 2rem;" />
 
 </div>

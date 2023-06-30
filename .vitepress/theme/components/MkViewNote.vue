@@ -1,15 +1,12 @@
 <script setup>
-import { useData } from "vitepress";
-import { getNoteDatetime } from "../server/utils";
+import { useData } from "vitepress"
+import { getNoteDatetime } from "../server/utils"
 
-const { theme } = useData();
+const { theme } = useData()
 </script>
 
 <template>
-  <div
-    v-if="!$frontmatter.layout"
-    :class="{ 'note-content': !$frontmatter.layout }"
-  >
+  <div v-if="!$frontmatter.layout" :class="{ 'note-content': !$frontmatter.layout }">
     <div class="content-header">
       <h1 class="note-title">{{ $frontmatter.title || "Untitled Notes" }}</h1>
       <div class="authorDiv">

@@ -1,26 +1,22 @@
 <script setup>
-import { useData, useRoute } from "vitepress";
-import { inject } from "vue";
-import Close from "./icons/Close.vue";
+import { useData, useRoute } from "vitepress"
+import { inject } from "vue"
+import Close from "./icons/Close.vue"
 
-const { theme } = useData();
-const route = useRoute();
-const isOpen = inject("showNavbar");
+const { theme } = useData()
+const route = useRoute()
+const isOpen = inject("showNavbar")
 
 const closeSidebar = (item) => {
-  if (item === route.path) return;
+  if (item === route.path) return
 
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
 </script>
 
 <template>
   <aside class="sidebar" :class="{ open: isOpen }">
-    <Close
-      @click="closeSidebar"
-      style="cursor: pointer"
-      class="close-button"
-    />
+    <Close @click="closeSidebar" style="cursor: pointer" class="close-button" />
     <a
       v-for="(item, i) in theme.nav"
       @click="closeSidebar(item.link)"

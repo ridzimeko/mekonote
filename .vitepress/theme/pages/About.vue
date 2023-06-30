@@ -1,5 +1,5 @@
 <script setup>
-import ExternalLink from "../components/icons/ExternalLink.vue";
+import ExternalLink from "../components/icons/ExternalLink.vue"
 </script>
 
 <template>
@@ -10,9 +10,7 @@ import ExternalLink from "../components/icons/ExternalLink.vue";
       <small v-if="$frontmatter.imageSource" class="imageCredit"
         ><a :href="$frontmatter.imageSource" target="_blank" rel="noreferrer"
           >Wallpaper source
-          <ExternalLink
-            class="icon-external-link"
-            style="height: 20px; width: 20px"
+          <ExternalLink class="icon-external-link" style="height: 20px; width: 20px"
         /></a>
       </small>
       <div class="pageHeader">

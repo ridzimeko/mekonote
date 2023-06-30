@@ -1,6 +1,6 @@
 <script setup>
-import RmIconNight from "./icons/RmIconNight.vue";
-import RmIconLight from "./icons/RmIconLight.vue";
+import RmIconNight from "./icons/RmIconNight.vue"
+import RmIconLight from "./icons/RmIconLight.vue"
 </script>
 
 <template>
