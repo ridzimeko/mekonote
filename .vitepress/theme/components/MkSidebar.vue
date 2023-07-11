@@ -1,7 +1,8 @@
 <script setup>
 import { useData, useRoute } from "vitepress"
-import { inject } from "vue"
-import Close from "./icons/Close.vue"
+import { inject, ref } from "vue"
+
+const isHovered = ref(false)
 
 const { theme } = useData()
 const route = useRoute()
@@ -16,7 +17,7 @@ const closeSidebar = (item) => {
 
 <template>
   <aside class="sidebar" :class="{ open: isOpen }">
-    <Close @click="closeSidebar" style="cursor: pointer" class="close-button" />
+    <i @click="closeSidebar" class="close-button ti ti-x"></i>
     <a
       v-for="(item, i) in theme.nav"
       @click="closeSidebar(item.link)"
@@ -66,7 +67,17 @@ const closeSidebar = (item) => {
 
 .close-button {
   position: fixed;
-  top: 0;
-  right: 5px;
+  top: 15px;
+  right: 18px;
+  font-size: 2.5rem;
+  font-weight: 200;
+  vertical-align: middle;
+  stroke-width: 1;
+  font-weight: 100;
+}
+
+.close-button:hover {
+  transition: 0.2s;
+  cursor: pointer;
 }
 </style>

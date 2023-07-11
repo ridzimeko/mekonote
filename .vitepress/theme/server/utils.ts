@@ -1,6 +1,5 @@
 import dayjs from "dayjs"
 import customParseFormat from "dayjs/plugin/customParseFormat"
-import "dayjs/locale/id"
 
 export const noteCategories = (notes: any[]) => {
   if (notes.length < 1) return false
@@ -24,9 +23,7 @@ export const estimatedReadingTime = (note: string) => {
 export const getNoteDatetime = (datetime: string) => {
   dayjs.extend(customParseFormat)
 
-  const time = dayjs(datetime, ["DD-MM-YYYY", "YYYY-MM-DD"], "id", true).format(
-    "DD MMMM YYYY"
-  )
+  const time = dayjs(datetime, ["DD-MM-YYYY", "YYYY-MM-DD"], true).format("DD MMM YYYY")
   return time
 }
 

@@ -7,11 +7,10 @@ import matter from "gray-matter"
 import fg from "fast-glob"
 import markdownIt from "markdown-it"
 
-
 dayjs.extend(customParseFormat)
 
 async function buildRSSFeed(RSSConfig: UserConfig) {
-  const { favicon, hostname, author, RssOptions } = RSSConfig.themeConfig
+  const { favicon, hostname, author, rssOptions } = RSSConfig.themeConfig
 
   const options: FeedOptions = {
     title: RSSConfig.title,
@@ -20,7 +19,7 @@ async function buildRSSFeed(RSSConfig: UserConfig) {
     id: hostname,
     link: hostname,
     author: author,
-    ...RssOptions,
+    ...rssOptions,
   }
   const feed = new Feed(options)
   const posts = await generateRSS(RSSConfig)

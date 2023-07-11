@@ -9,7 +9,7 @@ export default defineConfigWithTheme({
   themeConfig: {
     hostname: "https://example.com",
     favicon: "/favicon.svg",
-    RssOptions: {
+    rssOptions: {
       language: "en", // optional, used only in RSS 2.0
       copyright: `${new Date().getFullYear()} Mekonote`,
       generator: "Mekonote",
@@ -20,10 +20,10 @@ export default defineConfigWithTheme({
       image: "/images/blackycats.jpg",
     },
     nav: [
-      { text: "Beranda", link: "/" },
-      { text: "Catatan", link: "/notes" },
-      { text: "Kategori", link: "/category" },
-      { text: "Tentang", link: "/about" },
+      { text: "Home", link: "/" },
+      { text: "Notes", link: "/notes" },
+      { text: "Categories", link: "/category" },
+      { text: "About", link: "/about" },
     ],
   },
   buildEnd: ({ userConfig }) => buildRSSFeed(userConfig),

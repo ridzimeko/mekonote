@@ -18,7 +18,8 @@
 
 body {
   margin: 0;
-  font-family: "Helvetica","Arial","Inter","Consolas","Courier New","Lucida Console","Inconsolata", sans-serif;
+  font-family: "Helvetica", "Arial", "Inter", "Consolas", "Courier New", "Lucida Console",
+    "Inconsolata", sans-serif;
   box-sizing: border-box;
   background-color: var(--theme-background-light);
 }
@@ -48,8 +49,9 @@ a {
 }
 
 .note-content {
-  padding: 0 13rem;
   font-size: 17px;
+  max-width: 870px;
+  margin: auto;
 }
 
 .note-content div > * {
@@ -115,7 +117,8 @@ pre {
   overflow: scroll;
 }
 
-button[class*="copy"], button[class*="copied"] {
+button[class*="copy"],
+button[class*="copied"] {
   position: absolute;
   right: 20px;
   color: var(--theme-text-dark);
@@ -131,7 +134,6 @@ button.copied::after {
   display: flex;
   align-items: center;
 }
-
 
 div[class*="warning"] {
   background-color: #ffefca;

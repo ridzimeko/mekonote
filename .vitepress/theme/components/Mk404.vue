@@ -1,24 +1,26 @@
 <template>
   <div class="notFound--div">
     <div>
-      <h1 class="notFound_title">Tidak ada halaman yang tersedia</h1>
-      <p>Ups, sepertinya kamu lagi nyasar karena tidak ada apa-apa disini</p>
-      <a class="back_button" href="/">Oke balik aja</a>
+      <h1 class="notFound_title">
+        <i class="ti ti-info"></i>
+        Page Not Found
+      </h1>
+      <p>There's nothing around here... are you perhaps lost?</p>
+      <a class="back_button" href="/">Go back</a>
       <p class="error_text">Error code: 404 Not Found</p>
     </div>
+    <i class="ti ti-error-404 text-404"></i>
   </div>
 </template>
 
 <style scoped>
 .notFound--div {
   display: grid;
-  place-items: center;
+  place-items: center flex-start;
+  grid-template-columns: 800px 1fr;
   height: 100vh;
-  margin: 0 1rem;
-}
-
-.notFound--div div {
-  max-width: 680px;
+  padding-left: 10vw;
+  border: solid;
 }
 
 .notFound_title {
@@ -36,5 +38,10 @@
 
 .error_text {
   margin-top: 2.2rem;
+}
+
+.text-404 {
+  font-size: 20rem;
+  color: var(--theme-color-light);
 }
 </style>

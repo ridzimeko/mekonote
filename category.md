@@ -1,5 +1,5 @@
 ---
-title: Kategori
+title: Categories
 layout: page
 ---
 
@@ -7,4 +7,11 @@ layout: page
     import Category from './.vitepress/theme/pages/Category.vue';
 </script>
 
-<Category />
+<div style="max-width: 1000px; margin: 3rem auto;">
+    <h1>Categories</h1>
+    <Category />
+</div>
+
+<style module>
+
+</style>

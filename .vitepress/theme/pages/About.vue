@@ -1,17 +1,15 @@
-<script setup>
-import ExternalLink from "../components/icons/ExternalLink.vue"
-</script>
+<script setup></script>
 
 <template>
   <!-- Image Cover -->
   <div class="about">
     <div class="cover" v-if="$frontmatter.coverImage">
       <img :src="$frontmatter.coverImage" class="coverImage" />
-      <small v-if="$frontmatter.imageSource" class="imageCredit"
-        ><a :href="$frontmatter.imageSource" target="_blank" rel="noreferrer"
-          >Wallpaper source
-          <ExternalLink class="icon-external-link" style="height: 20px; width: 20px"
-        /></a>
+      <small v-if="$frontmatter.imageSource" class="imageCredit">
+        <a :href="$frontmatter.imageSource" target="_blank" rel="noreferrer">
+          Wallpaper source
+          <i class="ti ti-external-link"></i>
+        </a>
       </small>
       <div class="pageHeader">
         <h1 class="aboutTitle">{{ $frontmatter.coverTitle }}</h1>
@@ -65,8 +63,10 @@ import ExternalLink from "../components/icons/ExternalLink.vue"
 }
 
 .aboutDiv {
+  max-width: 1000px;
   margin-top: 2.2rem;
-  padding: 0 10rem;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 17px;
 }
 

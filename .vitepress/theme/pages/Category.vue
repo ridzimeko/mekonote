@@ -5,7 +5,7 @@ import { data as notes } from "../server/post.data"
 import MkMyNotes from "../components/MkMyNotes.vue"
 
 const selectedCategory = ref("")
-const categories = noteCategories(notes)
+const allCategories = noteCategories(notes)
 
 const getNoteFromCategory = (category: string) => {
   selectedCategory.value = category
@@ -15,7 +15,7 @@ const getNoteFromCategory = (category: string) => {
 <template>
   <div class="cardContainer">
     <button
-      v-for="category of categories"
+      v-for="category of allCategories"
       class="categoryCard"
       :class="{ active: category === selectedCategory }"
       @click="getNoteFromCategory(category)"
@@ -24,15 +24,14 @@ const getNoteFromCategory = (category: string) => {
     </button>
   </div>
 
-  <div class="container">
-    <MkMyNotes v-if="selectedCategory" :category="selectedCategory" />
-  </div>
+  <MkMyNotes
+    v-if="selectedCategory"
+    :category="selectedCategory"
+    style="margin-top: 4.4rem"
+  />
 </template>
 
 <style scoped>
-.container {
-  padding: 1rem 6rem;
-}
 .cardContainer {
   display: flex;
   gap: 30px;

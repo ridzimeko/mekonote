@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { useData, useRoute } from "vitepress";
-import Menu from "./icons/Menu.vue";
+import { useData, useRoute } from "vitepress"
 // import MkSwitchAppearance from "./MkSwitchAppearance.vue";
 
-const emit = defineEmits(["toggle-sidebar"]);
+const emit = defineEmits(["toggle-sidebar"])
 
 const toggleSidebar = () => {
-  emit("toggle-sidebar"); // Emit an event to trigger the sidebar toggle
-};
+  emit("toggle-sidebar") // Emit an event to trigger the sidebar toggle
+}
 
-const { site, theme, frontmatter } = useData();
-const route = useRoute();
+const { site, theme, frontmatter } = useData()
+const route = useRoute()
 </script>
 
 <template>
@@ -24,15 +23,13 @@ const route = useRoute();
         class="nav-items"
         :class="{ active: route.path === navItem.link }"
       >
-        <a class="text-shadow" :href="navItem.link" :key="index">{{
-          navItem.text
-        }}</a>
+        <a class="text-shadow" :href="navItem.link" :key="index">{{ navItem.text }}</a>
       </li>
-      <Menu
+      <i
         @click="toggleSidebar"
-        style="width: 40px; height: 40px; stroke-width: 2px"
-        class="nav-menu"
-      />
+        class="nav-menu ti ti-menu-deep"
+        style="font-size: 2rem"
+      ></i>
     </ul>
     <!-- TODO: make dark mode and light mode switch -->
     <!-- <RmSwitchAppearance /> -->

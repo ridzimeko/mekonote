@@ -12,7 +12,7 @@ const { theme } = useData()
       <div class="authorDiv">
         <div class="author-item">
           <img
-            loading="lazy"
+            loading="eager"
             class="author-image"
             :src="theme.author.image"
             :alt="theme.author.name"
@@ -27,7 +27,7 @@ const { theme } = useData()
         <i>{{ $frontmatter.description }}</i>
       </p>
       <img
-        loading="lazy"
+        loading="eager"
         class="note-image"
         :src="$frontmatter.image"
         :alt="$frontmatter.altText"
@@ -35,7 +35,7 @@ const { theme } = useData()
       />
     </div>
 
-    <Content />
+    <Content class="note-content" />
   </div>
 
   <Content class="content" v-else />
@@ -56,6 +56,7 @@ const { theme } = useData()
 
 .note-title {
   margin: 0 0 10px;
+  font-size: 2.4rem;
 }
 
 .note-image {
@@ -101,6 +102,10 @@ const { theme } = useData()
 
   .note-image {
     width: 100%;
+  }
+
+  .note-title {
+    font-size: 2rem;
   }
 }
 </style>
