@@ -7,7 +7,7 @@ layout: page
     import Category from './.vitepress/theme/pages/Category.vue';
 </script>
 
-<div style="max-width: 1000px; margin: 3rem auto;">
+<div class="hero">
     <h1>Categories</h1>
     <Category />
 </div>

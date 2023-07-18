@@ -14,32 +14,35 @@ const { site, frontmatter } = useData()
       <div class="mk-button-container">
         <a
           class="mk-button primary"
-          v-if="frontmatter.introButton.primary && frontmatter.introButton"
+          v-if="frontmatter.introButton?.primary"
           :href="frontmatter.introButton.primary.url"
         >
           {{ frontmatter.introButton.primary.text }}</a
         >
         <a
-          v-if="frontmatter.introButton.secondary && frontmatter.introButton"
           class="mk-button secondary"
+          v-if="frontmatter.introButton?.secondary"
           :href="frontmatter.introButton.secondary.url"
           >{{ frontmatter.introButton.secondary.text }}</a
         >
       </div>
     </div>
-    <MkMyNotes :limit="frontmatter.notesLimit" class="recent-notes" />
+    <div class="recent-notes">
+      <h2>Recent Notes</h2>
+      <MkMyNotes :limit="frontmatter.notesLimit" />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .mk-intro {
-  max-width: 768px;
+  max-width: 748px;
   padding: 4rem 6rem;
   margin-bottom: 4rem;
 }
 
 .mk-intro h1 {
-  font-size: 65px;
+  font-size: 3.5rem;
   margin: 0;
   color: var(--brand-color-primary);
 }
@@ -79,7 +82,11 @@ const { site, frontmatter } = useData()
 .recent-notes {
   max-width: 1000px;
   margin: auto;
-  padding: 0 1.2rem;
+  padding: 0 1rem;
+}
+
+.recent-notes h2 {
+  text-align: center;
 }
 
 @media screen and (max-width: 860px) {
@@ -87,11 +94,11 @@ const { site, frontmatter } = useData()
     padding: 3rem 1.2rem;
   }
   .mk-intro h1 {
-    font-size: 3.1rem;
+    font-size: 3rem;
   }
 
   .mk-intro h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 </style>

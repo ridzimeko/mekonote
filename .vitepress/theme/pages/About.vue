@@ -2,7 +2,7 @@
 
 <template>
   <!-- Image Cover -->
-  <div class="about">
+  <div class="about-container">
     <div class="cover" v-if="$frontmatter.coverImage">
       <img :src="$frontmatter.coverImage" class="coverImage" />
       <small v-if="$frontmatter.imageSource" class="imageCredit">
@@ -18,11 +18,7 @@
     </div>
     <!-- Image Cover -->
 
-    <div class="aboutDiv">
-      <div>
-        <Content />
-      </div>
-    </div>
+    <Content class="about-content" />
   </div>
 </template>
 
@@ -62,14 +58,6 @@
   text-align: justify;
 }
 
-.aboutDiv {
-  max-width: 1000px;
-  margin-top: 2.2rem;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 17px;
-}
-
 .imageCredit {
   color: white;
   position: absolute;
@@ -85,6 +73,14 @@
 
 .imageCredit a:hover {
   text-decoration: underline;
+}
+
+.about-content {
+  max-width: 1000px;
+  margin: auto;
+  line-height: 1.4;
+  font-size: 17px;
+  padding: 0 1rem;
 }
 
 @media screen and (max-width: 820px) {

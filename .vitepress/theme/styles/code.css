@@ -1,0 +1,206 @@
+:root {
+  --transition-time: 0.2s;
+  --removed-line: #4e161d;
+  --added-line: #0c410c;
+  --error-line: #431e26;
+  --warning-line: #413614;
+}
+
+div[class|="language"] {
+  position: relative;
+  background-color: var(--theme-color-dark);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+/* ----- Copy button ----- */
+
+div[class|="language"] button.copy {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  color: var(--theme-text-light);
+  background-color: var(--theme-color-light);
+  border: none;
+  border-radius: 4px;
+  z-index: 5;
+  opacity: 0;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+div[class|="language"]:hover button.copy,
+div[class|="language"] button.copied {
+  opacity: 1;
+}
+
+div[class|="language"] button.copy::after {
+  position: relative;
+  top: 3px;
+  font-family: var(--mk-font-family);
+  content: "\f089";
+  font-size: 1.5rem;
+}
+
+div[class|="language"] button.copied::after {
+  content: "\ea6c";
+}
+
+div[class|="language"] button.copied::before {
+  content: "Copied!";
+  padding-right: 0.7rem;
+  padding-left: 0.5rem;
+  font-size: 14px;
+}
+
+/* ----- Code lang ----- */
+
+div[class|="language"] span.lang {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  border-radius: 6px;
+  color: #6e6e72;
+  opacity: 1;
+  transition: 0.2s;
+  z-index: 4;
+  font-size: 12px;
+}
+
+/* ----- Button opacity ----- */
+
+div[class|="language"]:hover span.lang,
+div[class|="language"] button.copied + span.lang {
+  opacity: 0;
+}
+
+/* ----- Shiki style ----- */
+
+div[class|="language"] pre.shiki {
+  position: relative;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+div[class|="language"] pre.shiki code {
+  padding: 0 24px;
+  display: block;
+  width: fit-content;
+  min-width: 100%;
+}
+
+/* ----- Line numbers ----- */
+
+div[class|="language"].line-numbers-mode {
+  padding-left: 32px;
+}
+
+.line-numbers-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding-top: 20px;
+  width: 32px;
+  border-right: solid 1px;
+  color: #6e6e72;
+}
+
+.line-numbers-wrapper .line-number {
+  vertical-align: middle;
+}
+
+/* ----- Code group ----- */
+
+.vp-code-group {
+  position: relative;
+  background-color: #242e2e;
+  color: white;
+  border-radius: 6px;
+}
+
+.vp-code-group div[class|="language"] {
+  margin: 0;
+}
+
+.vp-code-group .tabs {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.vp-code-group .tabs input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+
+.vp-code-group .tabs label {
+  padding: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-time);
+}
+
+.vp-code-group input:checked + label:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  right: 10px;
+  height: 0.1rem;
+  background-color: var(--brand-color-primary);
+}
+
+.vp-code-group div[class*="language-"]:not(.active) {
+  display: none;
+}
+
+.vp-code-group pre.shiki {
+  margin: 0;
+}
+
+/* ----- Code hightlight -----  */
+
+pre.shiki.has-diff .line.diff,
+pre.shiki.has-highlighted-lines .line.highlighted {
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+  display: inline-block;
+}
+
+/* ----- Focused code hightlight -----  */
+
+pre.shiki.has-focused-lines .line:not(.has-focus) {
+  filter: blur(2px);
+  transition: var(--transition-time);
+}
+
+pre.shiki.has-focused-lines:hover .line:not(.has-focus) {
+  filter: blur(0);
+}
+
+/* ----- Colored diff code hightlight -----  */
+
+pre.shiki.has-highlighted-lines .line.highlighted {
+  background-color: black;
+}
+
+pre.shiki.has-highlighted-lines .line.highlighted.error {
+  background-color: var(--error-line);
+}
+
+pre.shiki.has-highlighted-lines .line.highlighted.warning {
+  background-color: var(--warning-line);
+}
+
+pre.shiki.has-diff .line.diff.remove {
+  background-color: var(--removed-line);
+}
+
+pre.shiki.has-diff .line.diff.add {
+  background-color: var(--added-line);
+}
