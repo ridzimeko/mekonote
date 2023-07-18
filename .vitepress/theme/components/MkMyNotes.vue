@@ -9,7 +9,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  limit: 10,
+  // limit: 10,
 })
 
 const myNotes = computed(() => {
