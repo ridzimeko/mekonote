@@ -36,7 +36,7 @@ const closeSidebar = (item) => {
   z-index: 15;
   right: 0;
   top: 0;
-  background-color: var(--theme-color-light);
+  background-color: var(--mk-theme-color);
   padding: 80px 20px 20px 40px;
   width: calc(100vh - 200px);
   max-width: 320px;
@@ -57,12 +57,12 @@ const closeSidebar = (item) => {
 .sidebar-items p {
   padding: 0.8em;
   border-radius: var(--rounded-border);
-  color: var(--theme-text-light);
+  color: var(--mk-text-color);
 }
 
 .sidebar-items p:hover,
 .active {
-  background-color: var(--theme-accent-light);
+  background-color: var(--mk-color-accent);
 }
 
 .close-button {

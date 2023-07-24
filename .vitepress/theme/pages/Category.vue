@@ -41,16 +41,16 @@ const getNoteFromCategory = (category: string) => {
 .categoryCard {
   padding: 12px 20px;
   border-radius: 9px;
-  color: var(--theme-text-light);
+  color: var(--mk-text-color);
   text-decoration: none;
-  background-color: var(--theme-color-light);
+  background-color: var(--mk-mute-dark);
   border: none;
   white-space: nowrap;
 }
 
 .active {
-  background-color: var(--brand-color-primary);
-  color: var(--theme-text-dark);
+  background-color: var(--mk-color-primary);
+  color: var(--mk-text-color);
   transition: all 0.2s;
 }
 

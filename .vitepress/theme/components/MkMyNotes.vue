@@ -49,15 +49,15 @@ const myNotes = computed(() => {
   transition: 0.2s;
   margin-bottom: 20px;
   border-radius: 6px;
-  border: 1px solid #d4d4d4;
   padding: 0 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: var(--mk-theme-color);
 }
 
 .note--card .note::before {
   transition: 0.2s;
   content: "";
-  background-color: var(--brand-color-primary);
+  background-color: var(--mk-color-primary);
   width: 4px;
   position: absolute;
   left: -4px;
@@ -77,7 +77,7 @@ const myNotes = computed(() => {
   flex-wrap: wrap;
   align-items: center;
   text-decoration: none;
-  color: var(--theme-text-light);
+  color: var(--mk-text-color);
   transition: 0.2s;
 }
 
@@ -91,7 +91,7 @@ const myNotes = computed(() => {
   display: flex;
   gap: 15px;
   vertical-align: middle;
-  color: rgb(34, 33, 33);
+  color: var(--mk-text-color);
 }
 
 .card-detail-2 p {
@@ -104,6 +104,6 @@ const myNotes = computed(() => {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgb(66, 65, 65);
+  color: var(--mk-text-color-mute);
 }
 </style>

@@ -44,7 +44,7 @@ const { site, frontmatter } = useData()
 .mk-intro h1 {
   font-size: 3.5rem;
   margin: 0;
-  color: var(--brand-color-primary);
+  color: var(--mk-color-primary);
 }
 
 .mk-intro h3 {
@@ -70,13 +70,13 @@ const { site, frontmatter } = useData()
 }
 
 .mk-button.primary {
-  background-color: var(--brand-color-primary);
+  background-color: var(--mk-color-primary);
   color: white;
 }
 
 .mk-button.secondary {
-  background-color: var(--theme-accent-light);
-  color: var(--theme-text-light);
+  background-color: var(--mk-color-secondary);
+  color: var(--mk-text-color);
 }
 
 .recent-notes {

@@ -1,41 +1,157 @@
-<script setup>
-import RmIconNight from "./icons/RmIconNight.vue"
-import RmIconLight from "./icons/RmIconLight.vue"
+<script setup lang="ts">
+import { onMounted, reactive } from "vue"
+
+export type UserTheme = "light" | "dark" | "auto"
+
+const mkTheme = reactive({
+  showMenu: false,
+  isDeviceDark: false,
+  currentTheme: localStorage.getItem("vitepress-theme-appearance"),
+})
+
+function toggleButton() {
+  mkTheme.showMenu = !mkTheme.showMenu
+}
+
+function checkCurrentTheme() {
+  if (!mkTheme.currentTheme) {
+    mkTheme.currentTheme = "auto"
+    localStorage.setItem("vitepress-theme-appearance", "auto")
+  }
+
+  const mql = window.matchMedia("(prefers-color-scheme: dark)")
+
+  mkTheme.isDeviceDark = mql.matches
+
+  mql.addEventListener("change", (e) => {
+    mkTheme.isDeviceDark = e.matches
+    if (mkTheme.currentTheme === "auto") return switchTheme("auto")
+  })
+}
+
+function switchTheme(theme: UserTheme) {
+  mkTheme.currentTheme = theme
+
+  if (theme === "dark" || (theme === "auto" && mkTheme.isDeviceDark)) {
+    document.documentElement.classList.add("dark")
+    return localStorage.setItem("vitepress-theme-appearance", theme)
+  }
+
+  document.documentElement.classList.remove("dark")
+  localStorage.setItem("vitepress-theme-appearance", theme)
+}
+
+onMounted(() => {
+  checkCurrentTheme()
+})
 </script>
 
 <template>
-  <div>
-    <button aria-checked="false">
-      <span>
-        <RmIconLight class="sun" />
-      </span>
-      <span>
-        <RmIconNight class="moon" />
-      </span>
-    </button>
+  <div role="button" class="theme-toggle">
+    <button @click="toggleButton"><i class="ti ti-shadow"></i></button>
+    <div class="theme-menu" :class="{ show: mkTheme.showMenu }">
+      <button
+        @click="switchTheme('auto')"
+        :aria-checked="mkTheme.currentTheme === 'auto'"
+      >
+        <i class="ti ti-sun-moon"></i>
+        System
+      </button>
+      <button
+        @click="switchTheme('light')"
+        :aria-checked="mkTheme.currentTheme === 'light'"
+      >
+        <i class="ti ti-sun"></i>
+        Light
+      </button>
+      <button
+        @click="switchTheme('dark')"
+        :aria-checked="mkTheme.currentTheme === 'dark'"
+      >
+        <i class="ti ti-moon"></i>
+        Dark
+      </button>
+    </div>
   </div>
+  <div @click="toggleButton" class="shadow" :class="{ show: mkTheme.showMenu }"></div>
 </template>
 
 <style scoped>
-button {
-  display: flex;
-  justify-content: space-between;
-  border: solid;
+.shadow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.show {
+  display: block;
+}
+
+.theme-toggle {
+  position: relative;
+  z-index: 100;
+}
+
+.theme-toggle .ti::before {
+  font-size: 156%;
+}
+
+:where(.theme-toggle, .theme-menu) > button {
+  border: transparent;
   background-color: transparent;
-  padding: 5px 20px;
-  border-radius: var(--rounded-border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
-svg {
-  width: 20px;
-  height: 20px;
+.theme-menu {
+  position: absolute;
+  top: 36px;
+  right: 0px;
+  background-color: var(--mk-theme-color);
+  min-width: 120px;
+  border-radius: 6px;
+  padding: 6px 0;
+  margin: 0;
+  transition: transform 0.08s linear, opacity 0.08s ease-out, visibility 0.08s;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  overflow: hidden;
 }
 
-.moon {
+.theme-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transform-origin: top center;
+}
+
+.theme-menu .ti::before {
+  font-size: 128%;
+  vertical-align: bottom;
+  margin-right: 6px;
+}
+
+.theme-menu > button {
   display: block;
+  white-space: nowrap;
+  padding: 8px 16px;
+  width: 100%;
+  text-align: left;
 }
 
-.sun {
-  display: block;
+.theme-menu > button:hover {
+  background-color: var(--mk-color-accent);
+}
+
+.theme-menu > button[aria-checked="true"] {
+  background-color: var(--mk-color-accent);
 }
 </style>

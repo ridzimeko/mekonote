@@ -1,5 +1,16 @@
+:root {
+  --mk-color-warning: #fed766;
+  --mk-bg-warning: #ffefca;
+  --mk-color-info: #6f9ceb;
+  --mk-bg-info: #e9f1ff;
+  --mk-color-danger: #ff312e;
+  --mk-bg-danger: #ffbb9c;
+  --mk-color-tip: #56e39f;
+  --mk-bg-tip: #d0fbe1;
+}
+
 .custom-block {
-  background-color: var(--theme-color-light);
+  background-color: var(--mk-mute-dark);
   padding: 0.5rem 1.5rem;
   border-radius: 9px;
   text-align: left;
@@ -8,11 +19,11 @@
 
 details {
   margin: 2rem 0;
-  color: var(--theme-text-light);
+  color: var(--mk-theme-text);
 }
 
 .table-of-contents {
-  background-color: var(--theme-color-light);
+  background-color: var(--mk-theme-color);
   padding: 1rem;
   border-radius: 9px;
   margin: 2rem 0;
@@ -22,7 +33,7 @@ details {
   content: "Daftar Isi";
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--theme-text-light);
+  color: var(--mk-theme-text);
 }
 
 .table-of-contents ul li a {
@@ -32,42 +43,42 @@ details {
 blockquote {
   padding: 2px 16px;
   margin: 20px 0;
-  border-left: 5px solid #c3c3c3;
-  color: #474646;
-  background-color: var(--theme-color-light);
+  border-left: 5px solid var(--mk-mute-dark);
+  color: var(--mk-text-color);
+  background-color: var(--mk-theme-color);
 }
 
 div[class*="warning"] {
-  background-color: #ffefca;
+  background-color: var(--mk-bg-warning);
 }
 
 div[class*="warning"] p {
-  color: var(--theme-color-warning);
+  color: var(--mk-color-warning);
 }
 
 div[class*="danger"] {
-  background-color: var(--theme-color-danger);
-  background-color: #ffbb9c;
+  background-color: var(--mk-color-danger);
+  background-color: var(--mk-bg-danger);
 }
 
 div[class*="danger"] p {
-  color: var(--theme-color-danger);
+  color: var(--mk-color-danger);
 }
 
 div[class*="info"] {
-  background-color: #e3f0ff;
+  background-color: var(--mk-bg-info);
   font-weight: bolder;
 }
 
 div[class*="info"] p {
-  color: var(--theme-color-info);
+  color: var(--mk-color-info);
 }
 
 div[class*="tip"] {
-  background-color: #d0fbe1;
+  background-color: var(--mk-bg-tip);
   font-weight: bolder;
 }
 
 div[class*="tip"] p {
-  color: var(--theme-color-tip);
+  color: var(--mk-color-tip);
 }

@@ -35,7 +35,7 @@
   object-fit: cover;
   object-position: 20% 50%;
   filter: brightness(0.9);
-  background-color: var(--theme-background-dark);
+  background-color: var(--mk-background);
 }
 
 .pageHeader {

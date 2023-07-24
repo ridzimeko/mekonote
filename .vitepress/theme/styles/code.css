@@ -4,11 +4,14 @@
   --added-line: #0c410c;
   --error-line: #431e26;
   --warning-line: #413614;
+  --code-background: #191919;
+  --code-background-alt: #28282c;
+  --highlighted-line: #353535;
 }
 
 div[class|="language"] {
   position: relative;
-  background-color: var(--theme-color-dark);
+  background-color: var(--code-background);
   border-radius: 4px;
   font-size: 0.9rem;
   margin: 1.2rem 0;
@@ -20,8 +23,8 @@ div[class|="language"] button.copy {
   position: absolute;
   top: 14px;
   right: 15px;
-  color: var(--theme-text-light);
-  background-color: var(--theme-color-light);
+  color: #b7b7b9;
+  background-color: var(--mk-theme-color);
   border: none;
   border-radius: 4px;
   z-index: 5;
@@ -116,7 +119,7 @@ div[class|="language"].line-numbers-mode {
 
 .vp-code-group {
   position: relative;
-  background-color: #242e2e;
+  background-color: var(--code-background-alt);
   color: white;
   border-radius: 6px;
 }
@@ -151,7 +154,7 @@ div[class|="language"].line-numbers-mode {
   left: 10px;
   right: 10px;
   height: 0.1rem;
-  background-color: var(--brand-color-primary);
+  background-color: var(--mk-color-primary);
 }
 
 .vp-code-group div[class*="language-"]:not(.active) {
@@ -186,7 +189,7 @@ pre.shiki.has-focused-lines:hover .line:not(.has-focus) {
 /* ----- Colored diff code hightlight -----  */
 
 pre.shiki.has-highlighted-lines .line.highlighted {
-  background-color: black;
+  background-color: var(--highlighted-line);
 }
 
 pre.shiki.has-highlighted-lines .line.highlighted.error {
