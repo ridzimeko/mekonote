@@ -1,12 +1,23 @@
 :root {
-  --mk-color-warning: #fed766;
-  --mk-bg-warning: #ffefca;
-  --mk-color-info: #6f9ceb;
-  --mk-bg-info: #e9f1ff;
+  --mk-color-warning: #98813d;
+  --mk-bg-warning: #fff3d1;
+  --mk-color-info: #478ee8;
+  --mk-bg-info: #edf4fd;
   --mk-color-danger: #ff312e;
-  --mk-bg-danger: #ffbb9c;
+  --mk-bg-danger: #ffeaea;
+  --mk-color-tip: #3c9f6f;
+  --mk-bg-tip: #ddf9ec;
+}
+
+:root.dark {
+  --mk-color-warning: #fed766;
+  --mk-bg-warning: #332b14;
+  --mk-color-info: #7eb0ef;
+  --mk-bg-info: #0e1c2e;
+  --mk-color-danger: #ff312e;
+  --mk-bg-danger: #330a09;
   --mk-color-tip: #56e39f;
-  --mk-bg-tip: #d0fbe1;
+  --mk-bg-tip: #112d20;
 }
 
 .custom-block {
@@ -15,6 +26,72 @@
   border-radius: 9px;
   text-align: left;
   margin: 1rem 0;
+}
+
+.custom-block .custom-block-title:before {
+  vertical-align: -10%;
+  margin-right: 6px;
+  font-size: 128%;
+}
+
+.custom-block .custom-block-title {
+  font-weight: 800;
+}
+
+/* warning custom block */
+
+.custom-block.warning {
+  background-color: var(--mk-bg-warning);
+}
+
+.custom-block.warning .custom-block-title:before {
+  content: "\ea06";
+}
+
+.custom-block.warning p {
+  color: var(--mk-color-warning);
+}
+
+/* danger custom block */
+
+.custom-block.danger {
+  background-color: var(--mk-bg-danger);
+}
+
+.custom-block.custom-block.danger .custom-block-title:before {
+  content: "\ea05";
+}
+
+.custom-block.danger p {
+  color: var(--mk-color-danger);
+}
+
+/* info custom block */
+
+.custom-block.info {
+  background-color: var(--mk-bg-info);
+}
+
+.custom-block.info .custom-block-title:before {
+  content: "\eac5";
+}
+
+.custom-block.info p {
+  color: var(--mk-color-info);
+}
+
+/* tip custom block */
+
+.custom-block.tip {
+  background-color: var(--mk-bg-tip);
+}
+
+.custom-block.tip .custom-block-title:before {
+  content: "\ea67";
+}
+
+.custom-block.tip p {
+  color: var(--mk-color-tip);
 }
 
 details {
@@ -29,13 +106,6 @@ details {
   margin: 2rem 0;
 }
 
-.table-of-contents:before {
-  content: "Daftar Isi";
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--mk-theme-text);
-}
-
 .table-of-contents ul li a {
   color: whitesmoke;
 }
@@ -46,39 +116,4 @@ blockquote {
   border-left: 5px solid var(--mk-mute-dark);
   color: var(--mk-text-color);
   background-color: var(--mk-theme-color);
-}
-
-div[class*="warning"] {
-  background-color: var(--mk-bg-warning);
-}
-
-div[class*="warning"] p {
-  color: var(--mk-color-warning);
-}
-
-div[class*="danger"] {
-  background-color: var(--mk-color-danger);
-  background-color: var(--mk-bg-danger);
-}
-
-div[class*="danger"] p {
-  color: var(--mk-color-danger);
-}
-
-div[class*="info"] {
-  background-color: var(--mk-bg-info);
-  font-weight: bolder;
-}
-
-div[class*="info"] p {
-  color: var(--mk-color-info);
-}
-
-div[class*="tip"] {
-  background-color: var(--mk-bg-tip);
-  font-weight: bolder;
-}
-
-div[class*="tip"] p {
-  color: var(--mk-color-tip);
 }
