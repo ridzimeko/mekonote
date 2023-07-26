@@ -1,6 +1,7 @@
 :root {
   --mk-color-primary: #2176ff;
   --mk-color-secondary: #bcd6ff;
+  --mk-color-link: #3a99bc;
   --mk-background: #fcfefe;
   --mk-text-color: #0b090b;
   --mk-theme-color: #ffffff;
@@ -12,9 +13,10 @@
 }
 
 :root.dark {
-  --mk-color-accent: #0d2f66;
-  --mk-color-primary: #2176ff;
-  --mk-color-secondary: #113b80;
+  --mk-color-accent: #40aad1;
+  --mk-color-link: #79c4df;
+  --mk-color-primary: #407ed1;
+  --mk-color-secondary: #244674;
   --mk-background: #101014;
   --mk-theme-color: #18181c;
   --mk-mute-dark: #28282c;
@@ -37,16 +39,4 @@ body {
   max-width: 1000px;
   margin: 3rem auto;
   padding: 0 1rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
-/* Content styles */
-
-a {
-  color: var(--mk-color-primary);
-  text-decoration: none;
 }

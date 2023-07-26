@@ -15,7 +15,7 @@ const route = useRoute()
 <template>
   <nav :class="frontmatter.coverImage ? 'nav-shadow' : null">
     <h2>
-      <a href="/">{{ site.title }}</a>
+      <a class="nav-title" href="/">{{ site.title }}</a>
     </h2>
     <div class="nav-list">
       <a
@@ -56,7 +56,7 @@ nav a {
   box-shadow: inset 10px 0 160px black;
 }
 
-.nav-shadow * {
+.nav-shadow :where(.nav-title, .nav-items, .ti-shadow) {
   color: #eef0f6;
 }
 

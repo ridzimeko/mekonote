@@ -129,4 +129,15 @@ const { theme } = useData()
   font-size: 1.2rem;
   vertical-align: text-bottom;
 }
+
+/* Hyperlinks */
+
+a {
+  color: var(--mk-color-link);
+  text-decoration: none;
+}
+
+:where(.note-content, .page-content) a:hover {
+  text-decoration: underline;
+}
 </style>
