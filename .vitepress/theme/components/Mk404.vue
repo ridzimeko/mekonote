@@ -1,6 +1,6 @@
 <template>
-  <div class="notFound--div">
-    <div>
+  <main>
+    <div class="notFound_div">
       <h1 class="notFound_title">
         <i class="ti ti-info"></i>
         Page Not Found
@@ -10,17 +10,20 @@
       <p class="error_text">Error code: 404 Not Found</p>
     </div>
     <i class="ti ti-error-404 text-404"></i>
-  </div>
+  </main>
 </template>
 
 <style scoped>
-.notFound--div {
-  display: grid;
-  place-items: center flex-start;
-  grid-template-columns: 800px 1fr;
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100vh;
-  padding-left: 10vw;
-  border: solid;
+  padding: 0 10vw;
+}
+
+.notFound_div {
+  max-width: 520px;
 }
 
 .notFound_title {
@@ -31,7 +34,7 @@
   line-height: 3rem;
   padding: 10px 10px;
   border-radius: 9px;
-  background-color: var(--brand-color-primary);
+  background-color: var(--mk-color-primary);
   color: white;
   text-decoration: none;
 }
@@ -41,7 +44,13 @@
 }
 
 .text-404 {
-  font-size: 20rem;
+  font-size: 18rem;
   color: var(--theme-color-light);
+}
+
+@media (max-width: 980px) {
+  .text-404 {
+    display: none;
+  }
 }
 </style>
