@@ -24,7 +24,6 @@
     "@types/node": "^20.2.1",
     "prettier": "^2.8.8",
     "typescript": "^5.1.5",
-    "vite-plugin-imagemin": "^0.6.1",
     "vitepress": "1.0.0-alpha.75",
     "vue": "^3.2.47"
   },
