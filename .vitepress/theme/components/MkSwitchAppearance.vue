@@ -3,10 +3,16 @@ import { onMounted, reactive } from "vue"
 
 export type UserTheme = "light" | "dark" | "auto"
 
-const mkTheme = reactive({
+interface MkTheme {
+  showMenu: boolean
+  isDeviceDark: boolean
+  currentTheme: null | string
+}
+
+const mkTheme = reactive<MkTheme>({
   showMenu: false,
   isDeviceDark: false,
-  currentTheme: localStorage.getItem("vitepress-theme-appearance"),
+  currentTheme: null,
 })
 
 function toggleButton() {
@@ -14,19 +20,16 @@ function toggleButton() {
 }
 
 function checkCurrentTheme() {
-  if (!mkTheme.currentTheme) {
+  if (!localStorage) return false
+
+  const theme = localStorage.getItem("vitepress-theme-appearance")
+
+  if (!theme) {
     mkTheme.currentTheme = "auto"
     localStorage.setItem("vitepress-theme-appearance", "auto")
   }
 
-  const mql = window.matchMedia("(prefers-color-scheme: dark)")
-
-  mkTheme.isDeviceDark = mql.matches
-
-  mql.addEventListener("change", (e) => {
-    mkTheme.isDeviceDark = e.matches
-    if (mkTheme.currentTheme === "auto") return switchTheme("auto")
-  })
+  mkTheme.currentTheme = theme
 }
 
 function switchTheme(theme: UserTheme) {
@@ -43,6 +46,15 @@ function switchTheme(theme: UserTheme) {
 
 onMounted(() => {
   checkCurrentTheme()
+
+  const mql = window.matchMedia("(prefers-color-scheme: dark)")
+
+  mkTheme.isDeviceDark = mql.matches
+
+  mql.addEventListener("change", (e) => {
+    mkTheme.isDeviceDark = e.matches
+    if (mkTheme.currentTheme === "auto") return switchTheme("auto")
+  })
 })
 </script>
 
