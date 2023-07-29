@@ -1,5 +1,6 @@
 import { defineConfigWithTheme } from "vitepress"
 import buildRSSFeed from "./rss"
+import transformHeadTags from "./theme/server/head"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme({
@@ -27,6 +28,7 @@ export default defineConfigWithTheme({
     ],
   },
   buildEnd: ({ userConfig }) => buildRSSFeed(userConfig),
+  transformHead: (ctx) => transformHeadTags(ctx),
   cleanUrls: true,
   lastUpdated: true,
   srcExclude: ["**/README.md"],
