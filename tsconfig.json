@@ -10,7 +10,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": false
+    "sourceMap": false,
+    "resolveJsonModule": true
   },
   "include": ["./.vitepress/**/*"]
 }
