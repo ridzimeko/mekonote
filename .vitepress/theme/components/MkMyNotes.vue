@@ -20,82 +20,73 @@ const myNotes = computed(() => {
 
 <template>
   <div class="notes">
-    <div class="note--card" v-for="note of myNotes.slice(0, limit)" :key="note.url">
-      <a class="note" :href="note.url">
-        <div class="card-detail-1">
-          <h3 class="card-title">{{ note.title }}</h3>
-          <p class="card-description">
-            <i>{{ note.description || "No description for this note" }}</i>
-          </p>
-        </div>
-        <div class="card-detail-2">
-          <p>
-            <i class="ti ti-clock note-detail-icon"></i>
-            {{ note.readingTime }} mins read
-          </p>
-          <p>
-            <i class="ti ti-calendar-time note-detail-icon"></i>
-            {{ note.date }}
-          </p>
-        </div>
-      </a>
-    </div>
+    <a
+      class="note--card"
+      v-for="note of myNotes.slice(0, limit)"
+      :key="note.url"
+      :href="note.url"
+    >
+      <div class="card-detail-1">
+        <h3 class="card-title">{{ note.title }}</h3>
+        <p class="card-description">
+          <i>{{ note.description || "No description for this note" }}</i>
+        </p>
+      </div>
+      <div class="card-detail-2">
+        <span>
+          <i class="ti ti-clock note-detail-icon"></i>
+          {{ note.readingTime }} mins read
+        </span>
+        <span class="note-date">
+          <i class="ti ti-calendar-time note-detail-icon"></i>
+          {{ note.date }}
+        </span>
+      </div>
+    </a>
   </div>
 </template>
 
 <style scoped>
 .note--card {
+  display: block;
   position: relative;
-  transition: 0.2s;
+  text-decoration: none;
+  padding: 1rem 1.2rem;
+  color: var(--mk-text-color);
   margin-bottom: 20px;
   border-radius: 6px;
-  padding: 0 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color: var(--mk-theme-color);
 }
 
-.note--card .note::before {
-  transition: 0.2s;
+.note--card::before {
   content: "";
+  position: absolute;
+  top: 0;
+  left: -4px;
+  transition: 0.2s;
   background-color: var(--mk-color-primary);
   width: 4px;
-  position: absolute;
-  left: -4px;
   height: 100%;
   opacity: 0;
   transform: translateX(-15px);
 }
 
-.note--card:hover .note::before {
+.note--card:hover::before {
   opacity: 1;
   transform: translateX(-10px);
 }
 
-.note {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  text-decoration: none;
-  color: var(--mk-text-color);
-  transition: 0.2s;
-}
-
-.card-detail-1 {
-  width: 520px;
-}
-
 .card-detail-2 {
-  width: 250px;
-  max-width: 300px;
   display: flex;
-  gap: 15px;
-  vertical-align: middle;
+  align-items: center;
+  gap: 16px;
   color: var(--mk-text-color);
 }
 
-.card-detail-2 p {
-  margin-top: 5px;
+.card-title,
+.note-date {
+  margin: 0;
 }
 
 .card-description {
@@ -105,5 +96,6 @@ const myNotes = computed(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   color: var(--mk-text-color-mute);
+  margin-top: 12px;
 }
 </style>
