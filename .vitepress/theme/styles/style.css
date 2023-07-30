@@ -8,7 +8,7 @@
   --mk-color-accent: #d3e4ff;
   --mk-mute-dark: #e7e7e8;
   --rounded-border: 2rem;
-  --mk-font-family: "Helvetica", "Arial", "Inter", "Consolas", "Courier New",
+  --mk-font-family: "Inter Variable", "Helvetica", "Arial", "Consolas", "Courier New",
     "Lucida Console", "tabler-icons", sans-serif;
 }
 
@@ -33,6 +33,7 @@ body {
   font-family: var(--mk-font-family);
   box-sizing: border-box;
   background-color: var(--mk-background);
+  /* font-weight: 400; */
 }
 
 .hero {

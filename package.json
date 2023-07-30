@@ -19,6 +19,7 @@
   "license": "GPL-3.0",
   "type": "module",
   "devDependencies": {
+    "@fontsource-variable/inter": "^5.0.5",
     "@tabler/icons-webfont": "^2.29.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^20.4.5",

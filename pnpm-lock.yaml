@@ -18,6 +18,9 @@ dependencies:
     version: 13.0.1
 
 devDependencies:
+  '@fontsource-variable/inter':
+    specifier: ^5.0.5
+    version: 5.0.5
   '@tabler/icons-webfont':
     specifier: ^2.29.0
     version: 2.29.0
@@ -444,6 +447,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource-variable/inter@5.0.5:
+    resolution: {integrity: sha512-hmj/jffr+1tabEPmvm+/b89MtbO6hd5PVbQ6HoMGTO7RMF5eD2C9UcprCgZTOF3OWh5uC21C9HZGN0O9wxe+UQ==}
+    dev: true
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
