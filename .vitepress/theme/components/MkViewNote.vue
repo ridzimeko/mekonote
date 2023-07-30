@@ -140,4 +140,12 @@ a {
 :where(.note-content, .page-content) a:hover {
   text-decoration: underline;
 }
+
+/* Inline code text */
+
+:where(.note-content, .page-content) :where(p, span) code {
+  background-color: var(--mk-mute-dark);
+  padding: 2px 4px;
+  border-radius: 6px;
+}
 </style>
