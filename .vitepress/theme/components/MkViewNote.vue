@@ -32,8 +32,8 @@ const { theme } = useData()
         loading="eager"
         class="note-image"
         :src="$frontmatter.image"
-        :alt="$frontmatter.altText"
-        :title="$frontmatter.altText"
+        :alt="$frontmatter.altImg"
+        :title="$frontmatter.altImg"
       />
     </div>
 

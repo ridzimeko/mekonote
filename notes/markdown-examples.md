@@ -2,7 +2,7 @@
 title: My First Note
 description: this is just a description
 image: https://www.pixelstalk.net/wp-content/uploads/2016/08/1080p-HD-Anime-Wallpaper.jpg
-altText: cute anime wallpaper
+altImg: cute anime wallpaper
 categories:
   - example
   - mekonote
