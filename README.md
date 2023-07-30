@@ -1,4 +1,4 @@
-# Mekonote - A Simple and Customizable Blog Made with Vitepress
+# Mekonote - A Simple and Customizable Blog Built with Vitepress
 
 Mekonote is a simple, easy and customizable blog. It's built with Vitepress, a fast tool that helps you create static websites.
 
@@ -23,7 +23,7 @@ git clone https://github.com/ridzimeko/mekonote
 cd mekonote
 ```
 
-4. Install the necessary files:
+3. Install the necessary files:
 
 ```bash
 npm install
@@ -35,9 +35,9 @@ Mekonote is a flexible blog that you can customize to fit your style.
 
 - **Layouts**: You can change how your blog looks by modifying the Vue components in the `.vitepress/theme` folder.
 
-- **Styling**: If you want to change the colors or fonts, you can edit the CSS files in the `.vitepress/theme/styles.css` folder.
+- **Styling**: If you want to change the colors or fonts, you can edit the CSS files in the `.vitepress/theme/styles` folder.
 
-- **Configuration**: To adjust settings like the blog's title, description, or navigation links, you can modify the `.vitepress/config.ts` file. For RSS setting you can go to `.vitepress/rss.ts`
+- **Configuration**: To adjust settings like the blog's title, description, or navigation links, you can modify the `.vitepress/config.ts` file.
 
 If you want to do more advanced customization, you can refer to the [Vitepress](https://vitepress.dev/docs) documentation.
 
@@ -74,7 +74,7 @@ You can also use vue component with the `.md` extension to extend your blog func
 **date**: date syntax `[YYYY-MM-DD, DD-MM-YYYY]` <br>
 **categories**: sort and group your blog posts into different sections <br>
 **image**: attach image to your post for thumbnail <br>
-**altText**: alternative text for image thumbnail
+**altImg**: alternative text for image thumbnail
 
 To see a preview of your post, run `npm run dev` in terminal
 
