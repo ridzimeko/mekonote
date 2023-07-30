@@ -10,8 +10,10 @@ const currentYear = new Date().getFullYear()
   <footer>
     <p>&copy; {{ currentYear }} {{ site.title }}</p>
     <p>
-      Powered by <a href="https://github.com/ridzimeko/mekonote">Mekonote</a> 
-      v{{ pkg.version }} licensed under GPL-3.0
+      Powered by <a href="https://github.com/ridzimeko/mekonote">Mekonote</a> v{{
+        pkg.version
+      }}
+      licensed under GPL-3.0
     </p>
   </footer>
 </template>
@@ -22,5 +24,10 @@ footer {
   margin-top: 3rem;
   padding: 1rem 0;
   font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--mk-text-color);
+  font-weight: 600;
 }
 </style>

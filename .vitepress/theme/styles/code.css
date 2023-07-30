@@ -24,7 +24,7 @@ div[class|="language"] button.copy {
   top: 14px;
   right: 15px;
   color: #b7b7b9;
-  background-color: var(--mk-theme-color);
+  background-color: var(--code-background-alt);
   border: none;
   border-radius: 4px;
   z-index: 5;
@@ -40,7 +40,6 @@ div[class|="language"] button.copied {
 
 div[class|="language"] button.copy::after {
   position: relative;
-  top: 3px;
   font-family: var(--mk-font-family);
   content: "\f089";
   font-size: 1.5rem;
@@ -52,9 +51,10 @@ div[class|="language"] button.copied::after {
 
 div[class|="language"] button.copied::before {
   content: "Copied!";
+  position: relative;
+  top: -4px;
   padding-right: 0.7rem;
   padding-left: 0.5rem;
-  font-size: 14px;
 }
 
 /* ----- Code lang ----- */

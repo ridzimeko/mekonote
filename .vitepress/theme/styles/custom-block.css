@@ -113,7 +113,7 @@ details {
 blockquote {
   padding: 2px 16px;
   margin: 20px 0;
-  border-left: 5px solid var(--mk-mute-dark);
-  color: var(--mk-text-color);
-  background-color: var(--mk-theme-color);
+  border-left: 5px solid var(--mk-text-color-mute);
+  color: var(--mk-text-color-mute);
+  font-weight: 500;
 }

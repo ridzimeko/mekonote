@@ -45,6 +45,7 @@ nav {
   padding: 5px 25px;
   z-index: 10;
   box-shadow: 0 -5px 8px black;
+  background-color: var(--mk-theme-color);
 }
 
 nav a {
