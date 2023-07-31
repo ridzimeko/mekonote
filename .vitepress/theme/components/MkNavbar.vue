@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { useData, useRoute } from "vitepress"
 import MkSwitchAppearance from "./MkSwitchAppearance.vue"
+import { inject } from "vue"
 
 const emit = defineEmits(["toggle-sidebar"])
 
 const toggleSidebar = () => {
   emit("toggle-sidebar") // Emit an event to trigger the sidebar toggle
 }
+
+const isNavbarOpen: boolean | undefined = inject("showNavbar")
 
 const { site, theme, frontmatter } = useData()
 const route = useRoute()
@@ -26,12 +29,14 @@ const route = useRoute()
         :key="index"
         >{{ navItem.text }}</a
       >
-      <!-- TODO: make dark mode and light mode switch -->
       <MkSwitchAppearance />
       <i
         @click="toggleSidebar"
         class="nav-menu ti ti-menu-deep"
-        style="font-size: 2rem"
+        role="button"
+        aria-label="Navbar"
+        aria-haspopup="menu"
+        :aria-expanded="isNavbarOpen"
       ></i>
     </div>
   </nav>
@@ -45,7 +50,6 @@ nav {
   padding: 5px 25px;
   z-index: 10;
   box-shadow: 0 -5px 8px black;
-  background-color: var(--mk-theme-color);
 }
 
 nav a {
@@ -64,6 +68,7 @@ nav a {
 .nav-menu {
   display: none;
   cursor: pointer;
+  font-size: 165%;
 }
 
 .nav-list {

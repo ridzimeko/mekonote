@@ -15,9 +15,7 @@ const mkTheme = reactive<MkTheme>({
   currentTheme: null,
 })
 
-function toggleButton() {
-  mkTheme.showMenu = !mkTheme.showMenu
-}
+const toggleButton = () => (mkTheme.showMenu = !mkTheme.showMenu)
 
 function checkCurrentTheme() {
   if (!localStorage) return false
@@ -59,33 +57,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <div role="button" class="theme-toggle">
-    <button @click="toggleButton"><i class="ti ti-shadow"></i></button>
+  <div class="theme-toggle">
+    <button
+      @click="toggleButton"
+      type="button"
+      aria-label="Toggle theme"
+      aria-haspopup="menu"
+      :aria-expanded="mkTheme.showMenu"
+    >
+      <i aria-hidden="true" class="ti ti-shadow"></i>
+    </button>
     <div class="theme-menu" :class="{ show: mkTheme.showMenu }">
       <button
         @click="switchTheme('auto')"
-        :aria-checked="mkTheme.currentTheme === 'auto'"
+        :aria-selected="mkTheme.currentTheme === 'auto'"
+        type="button"
       >
-        <i class="ti ti-sun-moon"></i>
+        <i aria-hidden="true" class="ti ti-sun-moon"></i>
         System
       </button>
       <button
         @click="switchTheme('light')"
-        :aria-checked="mkTheme.currentTheme === 'light'"
+        :aria-selected="mkTheme.currentTheme === 'light'"
+        type="button"
       >
-        <i class="ti ti-sun"></i>
+        <i aria-hidden="true" class="ti ti-sun"></i>
         Light
       </button>
       <button
         @click="switchTheme('dark')"
-        :aria-checked="mkTheme.currentTheme === 'dark'"
+        :aria-selected="mkTheme.currentTheme === 'dark'"
+        type="button"
       >
-        <i class="ti ti-moon"></i>
+        <i aria-hidden="true" class="ti ti-moon"></i>
         Dark
       </button>
     </div>
   </div>
-  <div @click="toggleButton" class="shadow" :class="{ show: mkTheme.showMenu }"></div>
+  <div v-if="mkTheme.showMenu" @click="toggleButton" class="shadow"></div>
 </template>
 
 <style scoped>
@@ -95,7 +104,6 @@ onMounted(() => {
   top: 0;
   width: 100vw;
   height: 100vh;
-  display: none;
   z-index: 50;
   overflow: hidden;
 }
@@ -110,7 +118,8 @@ onMounted(() => {
 }
 
 .theme-toggle .ti::before {
-  font-size: 156%;
+  font-size: 160%;
+  vertical-align: middle;
 }
 
 :where(.theme-toggle, .theme-menu) > button {
@@ -163,7 +172,7 @@ onMounted(() => {
   background-color: var(--mk-color-accent);
 }
 
-.theme-menu > button[aria-checked="true"] {
+.theme-menu > button[aria-selected="true"] {
   background-color: var(--mk-color-accent);
 }
 </style>

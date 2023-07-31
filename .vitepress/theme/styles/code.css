@@ -1,12 +1,12 @@
 :root {
   --transition-time: 0.2s;
   --removed-line: #4e161d;
-  --added-line: #0c410c;
+  --added-line: #043e20;
   --error-line: #431e26;
-  --warning-line: #413614;
-  --code-background: #191919;
-  --code-background-alt: #28282c;
-  --highlighted-line: #353535;
+  --warning-line: #4c311d;
+  --code-background: #181b25;
+  --code-background-alt: #161821;
+  --highlighted-line: #282a33;
 }
 
 div[class|="language"] {
@@ -29,7 +29,7 @@ div[class|="language"] button.copy {
   border-radius: 4px;
   z-index: 5;
   opacity: 0;
-  transition: 0.2s;
+  transition: var(--transition-time);
   cursor: pointer;
 }
 
@@ -66,7 +66,7 @@ div[class|="language"] span.lang {
   border-radius: 6px;
   color: #6e6e72;
   opacity: 1;
-  transition: 0.2s;
+  transition: var(--transition-time);
   z-index: 4;
   font-size: 12px;
 }

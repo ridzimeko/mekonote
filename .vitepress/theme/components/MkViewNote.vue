@@ -6,7 +6,10 @@ const { theme } = useData()
 </script>
 
 <template>
-  <div v-if="!$frontmatter.layout" :class="{ 'note-container': !$frontmatter.layout }">
+  <article
+    v-if="!$frontmatter.layout"
+    :class="{ 'note-container': !$frontmatter.layout }"
+  >
     <div class="note-header">
       <h1 class="note-title">{{ $frontmatter.title || "Untitled Notes" }}</h1>
       <div class="author-container">
@@ -38,7 +41,7 @@ const { theme } = useData()
     </div>
 
     <Content class="note-content" />
-  </div>
+  </article>
 
   <Content v-else class="page-content" />
 </template>
@@ -51,8 +54,8 @@ const { theme } = useData()
 }
 
 :where(.page-content, .note-content) {
-  font-size: clamp(1rem, 2svw, 1.06rem);
-  line-height: 1.4;
+  font-size: clamp(1rem, 2vw, 1.06rem);
+  line-height: 1.5;
 }
 
 :where(.note-content, .page-content) img {
@@ -73,7 +76,7 @@ const { theme } = useData()
 
 .note-header {
   text-align: center;
-  margin-top: 5em;
+  margin-top: 3em;
   margin-bottom: 3em;
 }
 
@@ -100,15 +103,12 @@ const { theme } = useData()
   justify-content: center;
   align-items: center;
   gap: 8px;
-}
-
-.author-name {
   font-size: 18px;
 }
 
 .note-title {
   margin: 0 0 10px;
-  font-size: clamp(2.2rem, 5vw, 2.6rem);
+  font-size: clamp(2rem, 5vw, 2.6rem);
 }
 
 .note-image {
@@ -119,7 +119,7 @@ const { theme } = useData()
 }
 
 .note-description {
-  font-size: 19px;
+  font-size: clamp(17px, 2vw, 19px);
   color: grey;
   text-align: left;
   margin: 1rem 0 0;
@@ -148,5 +148,16 @@ a {
   background-color: var(--mk-mute-dark);
   padding: 2px 4px;
   border-radius: 6px;
+}
+
+@media (max-width: 860px) {
+  .author-container {
+    font-size: 16px;
+  }
+
+  .author-image {
+    width: 40px;
+    height: 40px;
+  }
 }
 </style>

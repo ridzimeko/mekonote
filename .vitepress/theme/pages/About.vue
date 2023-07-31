@@ -26,7 +26,7 @@
 .cover {
   position: relative;
   height: 100vh;
-  top: -78px;
+  top: -79px;
 }
 
 .coverImage {

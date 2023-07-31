@@ -17,7 +17,8 @@ const getNoteFromCategory = (category: string) => {
     <button
       v-for="category of allCategories"
       class="categoryCard"
-      :class="{ active: category === selectedCategory }"
+      type="button"
+      :aria-pressed="category === selectedCategory"
       @click="getNoteFromCategory(category)"
     >
       {{ category }}
@@ -48,9 +49,9 @@ const getNoteFromCategory = (category: string) => {
   white-space: nowrap;
 }
 
-.active {
+button[aria-pressed="true"] {
   background-color: var(--mk-color-primary);
-  color: var(--mk-text-color);
+  color: #f1fafe;
   transition: all 0.2s;
 }
 

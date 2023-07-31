@@ -8,9 +8,9 @@ const { site, frontmatter } = useData()
 <template>
   <div class="page-content">
     <div class="mk-intro">
-      <h1>{{ site.title }}</h1>
-      <h3 class="mk-escription">{{ site.description }}</h3>
-      <p>{{ frontmatter.introText }}</p>
+      <h1 class="mk-title">{{ site.title }}</h1>
+      <h2 class="mk-description">{{ site.description }}</h2>
+      <p class="mk-intro-text">{{ frontmatter.introText }}</p>
       <div class="mk-button-container">
         <a
           class="mk-button primary"
@@ -41,18 +41,18 @@ const { site, frontmatter } = useData()
   margin-bottom: 4rem;
 }
 
-.mk-intro h1 {
+.mk-title {
   font-size: 3.5rem;
   margin: 0;
   color: var(--mk-color-primary);
 }
 
-.mk-intro h3 {
+.mk-description {
   font-size: 1.5rem;
   margin-top: 8px;
 }
 
-.mk-intro p {
+.mk-intro-text {
   font-size: 17px;
 }
 
@@ -71,7 +71,7 @@ const { site, frontmatter } = useData()
 
 .mk-button.primary {
   background-color: var(--mk-color-primary);
-  color: white;
+  color: #f1fafe;
 }
 
 .mk-button.secondary {
@@ -93,12 +93,16 @@ const { site, frontmatter } = useData()
   .mk-intro {
     padding: 3rem 1.2rem;
   }
-  .mk-intro h1 {
-    font-size: 3rem;
+  .mk-title {
+    font-size: 2.5rem;
   }
 
-  .mk-intro h3 {
+  .mk-description {
     font-size: 1.2rem;
+  }
+
+  .mk-intro-text {
+    font-size: 14px;
   }
 }
 </style>
