@@ -18,7 +18,7 @@ export default defineConfigWithTheme({
     author: {
       name: "blackycats",
       email: "meko@example.com",
-      image: "/images/blackycats.jpg",
+      image: "/notes/kubo.jpg",
     },
     nav: [
       { text: "Home", link: "/" },

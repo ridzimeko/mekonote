@@ -20,8 +20,12 @@ export const estimatedReadingTime = (note: string) => {
   return Math.ceil(words / wpm)
 }
 
-export const getNoteDatetime = (datetime: string) => {
+export const getNoteDatetime = (datetime: string | Date) => {
   dayjs.extend(customParseFormat)
+
+  if (datetime instanceof Date) {
+    return dayjs(datetime).format("DD MMM YYYY")
+  }
 
   const time = dayjs(datetime, ["DD-MM-YYYY", "YYYY-MM-DD"], true).format("DD MMM YYYY")
   return time
